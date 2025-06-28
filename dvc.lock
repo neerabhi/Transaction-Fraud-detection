@@ -108,3 +108,20 @@ stages:
       hash: md5
       md5: 2cdfad15a0541efdba6a5641b6187ae7
       size: 432891
+  splitting:
+    cmd: python src/Processing/splitting.py
+    deps:
+    - path: data/interim/featured_data.csv
+      hash: md5
+      md5: 00edead6608fa594f78a755f011e6d95
+      size: 72438728
+    - path: src/Processing/splitting.py
+      hash: md5
+      md5: 540c39699723c7f6d361c3ec3436aab8
+      size: 2751
+    outs:
+    - path: data/processed/split
+      hash: md5
+      md5: 0eca1481ab2d7aa49300c8cb62d67262.dir
+      size: 47928042
+      nfiles: 6

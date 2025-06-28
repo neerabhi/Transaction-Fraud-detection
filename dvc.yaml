@@ -45,3 +45,10 @@ stages:
     - notebooks/multivariate.py
     outs:
     - reports/figures/correlation_matrix.png
+  splitting:
+    cmd: python src/Processing/splitting.py
+    deps:
+    - data/interim/featured_data.csv
+    - src/Processing/splitting.py
+    outs:
+    - data/processed/split
