@@ -2,7 +2,7 @@ import pandas as pd
 from category_encoders import OneHotEncoder
 from pathlib import Path
 import os
-
+import joblib
 def save_ohe_data(X_train, X_valid, X_test, output_dir='data/processed/ohe'):
     """Save one-hot encoded datasets"""
     try:
@@ -13,6 +13,8 @@ def save_ohe_data(X_train, X_valid, X_test, output_dir='data/processed/ohe'):
         X_train.to_csv(f'{output_dir}/X_train_ohe.csv', index=False)
         X_valid.to_csv(f'{output_dir}/X_valid_ohe.csv', index=False)
         X_test.to_csv(f'{output_dir}/X_test_ohe.csv', index=False)
+
+        
         
         print(f"✅ One-hot encoded data saved to {output_dir}")
     except Exception as e:

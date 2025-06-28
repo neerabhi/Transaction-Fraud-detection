@@ -134,11 +134,28 @@ stages:
       size: 72438728
     - path: src/Processing/onehot.py
       hash: md5
-      md5: 2c9a540e003fac27acf2b599e8c39459
-      size: 2282
+      md5: dfab5c10b6f4b3a27c12195e876f85d5
+      size: 2307
     outs:
     - path: data/processed/ohe
       hash: md5
       md5: 718c265497c8b554e64920b631e26f3c.dir
       size: 46982407
       nfiles: 3
+  scale:
+    cmd: python src/Processing/scale.py
+    deps:
+    - path: data/interim/featured_data.csv
+      hash: md5
+      md5: 00edead6608fa594f78a755f011e6d95
+      size: 72438728
+    - path: src/Processing/scale.py
+      hash: md5
+      md5: 0337361c931d02ad57c34a488da1ac43
+      size: 3020
+    outs:
+    - path: data/processed/scaling
+      hash: md5
+      md5: fe143f05eca42281f82b8bc5d7a0e516.dir
+      size: 83565589
+      nfiles: 4

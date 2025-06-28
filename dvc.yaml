@@ -60,3 +60,11 @@ stages:
     - src/Processing/onehot.py
     outs:
     - data/processed/ohe
+
+  scale:
+    cmd: python src/Processing/scale.py
+    deps:
+    - data/interim/featured_data.csv
+    - src/Processing/scale.py
+    outs:
+    - data/processed/scaling
