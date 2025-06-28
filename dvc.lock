@@ -125,3 +125,20 @@ stages:
       md5: 0eca1481ab2d7aa49300c8cb62d67262.dir
       size: 47928042
       nfiles: 6
+  onehot:
+    cmd: python src/Processing/onehot.py
+    deps:
+    - path: data/interim/featured_data.csv
+      hash: md5
+      md5: 00edead6608fa594f78a755f011e6d95
+      size: 72438728
+    - path: src/Processing/onehot.py
+      hash: md5
+      md5: 2c9a540e003fac27acf2b599e8c39459
+      size: 2282
+    outs:
+    - path: data/processed/ohe
+      hash: md5
+      md5: 718c265497c8b554e64920b631e26f3c.dir
+      size: 46982407
+      nfiles: 3

@@ -52,3 +52,11 @@ stages:
     - src/Processing/splitting.py
     outs:
     - data/processed/split
+
+  onehot:
+    cmd: python src/Processing/onehot.py
+    deps:
+    - data/interim/featured_data.csv
+    - src/Processing/onehot.py
+    outs:
+    - data/processed/ohe
