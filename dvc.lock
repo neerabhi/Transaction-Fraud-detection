@@ -159,3 +159,20 @@ stages:
       md5: fe143f05eca42281f82b8bc5d7a0e516.dir
       size: 83565589
       nfiles: 4
+  finefeature:
+    cmd: python src/Processing/finefeature.py
+    deps:
+    - path: data/interim/featured_data.csv
+      hash: md5
+      md5: 00edead6608fa594f78a755f011e6d95
+      size: 72438728
+    - path: src/Processing/scale.py
+      hash: md5
+      md5: 0337361c931d02ad57c34a488da1ac43
+      size: 3020
+    outs:
+    - path: data/processed/finefeatures
+      hash: md5
+      md5: 73c60d5da13a057f36a0cdb33b60697f.dir
+      size: 52565198
+      nfiles: 3

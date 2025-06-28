@@ -68,3 +68,11 @@ stages:
     - src/Processing/scale.py
     outs:
     - data/processed/scaling
+
+  finefeature:
+    cmd: python src/Processing/finefeature.py
+    deps:
+    - data/interim/featured_data.csv
+    - src/Processing/scale.py
+    outs:
+    - data/processed/finefeatures
