@@ -38,3 +38,10 @@ stages:
     - reports/figures/bivariate_analysis/amount_distribution.png
     - reports/figures/bivariate_analysis/fraud_by_type.png
     - reports/figures/bivariate_analysis/type_distribution.png
+  multivariate:
+    cmd: python notebooks/multivariate.py
+    deps:
+    - data/interim/featured_data.csv
+    - notebooks/multivariate.py
+    outs:
+    - reports/figures/correlation_matrix.png

@@ -92,3 +92,19 @@ stages:
       hash: md5
       md5: ab4b2426c2a50f313e8fdda582c1b0e4
       size: 81942
+  multivariate:
+    cmd: python notebooks/multivariate.py
+    deps:
+    - path: data/interim/featured_data.csv
+      hash: md5
+      md5: 00edead6608fa594f78a755f011e6d95
+      size: 72438728
+    - path: notebooks/multivariate.py
+      hash: md5
+      md5: fd9c8b984fac17bbaf20fb71e3e634d4
+      size: 3431
+    outs:
+    - path: reports/figures/correlation_matrix.png
+      hash: md5
+      md5: 2cdfad15a0541efdba6a5641b6187ae7
+      size: 432891
