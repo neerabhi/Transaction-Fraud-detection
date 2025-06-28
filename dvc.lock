@@ -1,0 +1,50 @@
+schema: '2.0'
+stages:
+  feature_engineering:
+    cmd: python src/features/feature_engineering.py
+    deps:
+    - path: data/external/fraud_detection.csv
+      hash: md5
+      md5: 70fcd4ce85aa9596388048bbdf656161
+      size: 49248400
+    - path: src/features/feature_engineering.py
+      hash: md5
+      md5: 3deb86df3f6603eb7cac7442637db730
+      size: 832
+    outs:
+    - path: data/interim/featured_data.csv
+      hash: md5
+      md5: 00edead6608fa594f78a755f011e6d95
+      size: 72438728
+  fraud_dist:
+    cmd: python notebooks\univariate_analysis\fraud_dist.py
+    deps:
+    - path: data/interim/featured_data.csv
+      hash: md5
+      md5: 00edead6608fa594f78a755f011e6d95
+      size: 72438728
+    - path: notebooks\univariate_analysis\fraud_dist.py
+      hash: md5
+      md5: d569e0b0626e8c4863dc94557f632f5b
+      size: 2902
+    outs:
+    - path: reports/figures/fraud_distribution.png
+      hash: md5
+      md5: bd082b855dbb1eb179289a44ce15a79f
+      size: 62293
+  cat:
+    cmd: python notebooks/univariate_analysis/cat.py
+    deps:
+    - path: data/interim/featured_data.csv
+      hash: md5
+      md5: 00edead6608fa594f78a755f011e6d95
+      size: 72438728
+    - path: notebooks/univariate_analysis/cat.py
+      hash: md5
+      md5: aee48ead2ca971aacab4e66fc0cae90c
+      size: 3824
+    outs:
+    - path: reports/figures/categorical_distribution.png
+      hash: md5
+      md5: 7f53169e91abef479e5edf2eb92784d6
+      size: 189238

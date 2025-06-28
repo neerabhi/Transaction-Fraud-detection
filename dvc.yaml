@@ -1,0 +1,30 @@
+stages:
+  feature_engineering:
+    cmd: python src/features/feature_engineering.py
+    deps:
+    - data/external/fraud_detection.csv
+    - src/features/feature_engineering.py
+    outs:
+    - data/interim/featured_data.csv
+  fraud_dist:
+    cmd: python notebooks\univariate_analysis\fraud_dist.py
+    deps:
+    - data/interim/featured_data.csv
+    - notebooks\univariate_analysis\fraud_dist.py
+    outs:
+    - reports/figures/fraud_distribution.png
+  cat:
+    cmd: python notebooks/univariate_analysis/cat.py
+    deps:
+    - data/interim/featured_data.csv
+    - notebooks/univariate_analysis/cat.py
+    outs:
+    - reports/figures/categorical_distribution.png
+
+  num:
+    cmd: python notebooks/univariate_analysis/num.py
+    deps:
+    - data/interim/featured_data.csv
+    - python notebooks/univariate_analysis/num.py
+    outs:
+    - reports/figures/numerical_distribution.png
