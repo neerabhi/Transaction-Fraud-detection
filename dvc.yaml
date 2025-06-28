@@ -25,6 +25,16 @@ stages:
     cmd: python notebooks/univariate_analysis/num.py
     deps:
     - data/interim/featured_data.csv
-    - python notebooks/univariate_analysis/num.py
+    - notebooks\univariate_analysis\num.py
     outs:
     - reports/figures/numerical_distribution.png
+  bivariate:
+    cmd: python notebooks/bivariate.py
+    deps:
+    - data/interim/featured_data.csv
+    - notebooks/bivariate.py
+    outs:
+    - reports/figures/bivariate_analysis/origin_dest_analysis.png
+    - reports/figures/bivariate_analysis/amount_distribution.png
+    - reports/figures/bivariate_analysis/fraud_by_type.png
+    - reports/figures/bivariate_analysis/type_distribution.png

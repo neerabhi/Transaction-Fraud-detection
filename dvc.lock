@@ -48,3 +48,47 @@ stages:
       hash: md5
       md5: 7f53169e91abef479e5edf2eb92784d6
       size: 189238
+  num:
+    cmd: python notebooks/univariate_analysis/num.py
+    deps:
+    - path: data/interim/featured_data.csv
+      hash: md5
+      md5: 00edead6608fa594f78a755f011e6d95
+      size: 72438728
+    - path: notebooks\univariate_analysis\num.py
+      hash: md5
+      md5: dc91315b52eb07ab9942e2a8ed4a8267
+      size: 3178
+    outs:
+    - path: reports/figures/numerical_distribution.png
+      hash: md5
+      md5: 59d62fa535ea058c166d4c42d0c63590
+      size: 501050
+  bivariate:
+    cmd: python notebooks/bivariate.py
+    deps:
+    - path: data/interim/featured_data.csv
+      hash: md5
+      md5: 00edead6608fa594f78a755f011e6d95
+      size: 72438728
+    - path: notebooks/bivariate.py
+      hash: md5
+      md5: dd000adf37f7e97091ab437476fbcb91
+      size: 4422
+    outs:
+    - path: reports/figures/bivariate_analysis/amount_distribution.png
+      hash: md5
+      md5: 3e07b080521543ba86bbfdb89066fe3b
+      size: 83079
+    - path: reports/figures/bivariate_analysis/fraud_by_type.png
+      hash: md5
+      md5: 483b4374232668598829775661b0a6c7
+      size: 115565
+    - path: reports/figures/bivariate_analysis/origin_dest_analysis.png
+      hash: md5
+      md5: 06be9e89dbffc749b727bcf13e3d3325
+      size: 91921
+    - path: reports/figures/bivariate_analysis/type_distribution.png
+      hash: md5
+      md5: ab4b2426c2a50f313e8fdda582c1b0e4
+      size: 81942
