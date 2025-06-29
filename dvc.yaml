@@ -85,3 +85,13 @@ stages:
     outs:
     - models/dummy/dummy_model.joblib
     - models/dummy/dummy_model.pkl
+  dummy_eval:
+    cmd: python src/models/dummy/model_evaluate.py
+    deps:
+    - data/processed/finefeatures/X_test_finalfeatures.csv
+    - data/processed/split/y_test.csv
+    - models/dummy/dummy_model.pkl
+    - src/models/dummy/model_evaluate.py
+    outs:
+    - metrics/dummy/evaluation_metrics.json
+    - metrics/dummy/classification_report.txt
