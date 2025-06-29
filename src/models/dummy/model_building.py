@@ -17,7 +17,7 @@ dummy = DummyClassifier()
 dummy.fit(X_train, y_train)
 
 # Save model - create models directory if it doesn't exist
-model_dir = Path('./models')
+model_dir = Path('./models/dummy')
 model_dir.mkdir(exist_ok=True)
 
 # Save using joblib

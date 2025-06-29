@@ -13,10 +13,10 @@ logging.basicConfig(level=logging.INFO)
 logger = logging.getLogger(__name__)
 
 # Configuration
-MODEL_PATH = Path('models/dummy_model.pkl')
+MODEL_PATH = Path('models/dummy/dummy_model.pkl')
 DATA_DIR = Path('./data/processed/')
-METRICS_PATH = Path('metrics/evaluation_metrics.json')
-CLASS_REPORT_PATH = Path('metrics/classification_report.txt')
+METRICS_PATH = Path('metrics/dummy/evaluation_metrics.json')
+CLASS_REPORT_PATH = Path('metrics/dummy/classification_report.txt')
 
 def load_model(model_path: Path):
     """Load a saved model from file"""
