@@ -76,3 +76,12 @@ stages:
     - src/Processing/scale.py
     outs:
     - data/processed/finefeatures
+  dummy:
+    cmd: python src/models/dummy/model_building.py
+    deps:
+    - data/processed/finefeatures/X_train_finalfeatures.csv
+    - data/processed/split/y_train.csv
+    - src/models/dummy/model_building.py
+    outs:
+    - models/dummy/dummy_model.joblib
+    - models/dummy/dummy_model.pkl
