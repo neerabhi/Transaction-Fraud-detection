@@ -3,7 +3,7 @@ import numpy as np
 from sklearn.dummy import DummyClassifier
 from pathlib import Path
 import joblib  # better than pickle for sklearn models
-
+from dvclive import live
 # Load data - using raw strings or forward slashes for paths
 data_dir = Path('./data/processed/')
 X_train = pd.read_csv(data_dir / 'finefeatures/X_train_finalfeatures.csv')

@@ -7,6 +7,7 @@ from sklearn.metrics import (accuracy_score, precision_score,
 from sklearn.dummy import DummyClassifier
 import logging
 from datetime import datetime
+from dvclive import Live 
 
 # Set up logging
 logging.basicConfig(level=logging.INFO)
