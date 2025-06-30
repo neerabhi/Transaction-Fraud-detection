@@ -189,13 +189,9 @@ stages:
       size: 1221631
     - path: src/models/dummy/model_building.py
       hash: md5
-      md5: 2ba54e67425d391c5d7de77654426aac
-      size: 881
+      md5: 0d0c8b043667939332ae71944651d908
+      size: 909
     outs:
-    - path: models/dummy/dummy_model.joblib
-      hash: md5
-      md5: 76c589b5e8a966df54e4bf44cff81254
-      size: 1031
     - path: models/dummy/dummy_model.pkl
       hash: md5
       md5: 08fdbdfebb4be2ec24cb7d70b44dd2f6
@@ -217,8 +213,8 @@ stages:
       size: 678
     - path: src/models/dummy/model_evaluate.py
       hash: md5
-      md5: 3a9dfb2545e875ea1d56fd416a270b1e
-      size: 3623
+      md5: 49e3b7a61c2927444d198a4673dd1a7d
+      size: 3650
     outs:
     - path: metrics/dummy/classification_report.txt
       hash: md5
@@ -226,5 +222,5 @@ stages:
       size: 334
     - path: metrics/dummy/evaluation_metrics.json
       hash: md5
-      md5: 394d2c39c0c82e5c9117d19cca930590
+      md5: 9b157293c48527282d5094d8c400ca93
       size: 1009

@@ -20,8 +20,8 @@ dummy.fit(X_train, y_train)
 model_dir = Path('./models/dummy')
 model_dir.mkdir(exist_ok=True)
 
-# Save using joblib
-joblib.dump(dummy, model_dir / 'dummy_model.joblib')
+# # Save using joblib
+# joblib.dump(dummy, model_dir / 'dummy_model.joblib')
 
 # Alternatively using pickle (fixed variable name)
 import pickle

@@ -83,7 +83,7 @@ stages:
     - data/processed/split/y_train.csv
     - src/models/dummy/model_building.py
     outs:
-    - models/dummy/dummy_model.joblib
+    # - models/dummy/dummy_model.joblib
     - models/dummy/dummy_model.pkl
   dummy_eval:
     cmd: python src/models/dummy/model_evaluate.py
