@@ -8,10 +8,6 @@ from preprocess import Fraud
 # Load model
 model = joblib.load('models/dummy/dummy_model.joblib')
 
-# Create Fraud pipeline instance
-# self.minmaxscaler = joblib.load('models\minmax_scaler.joblib')
-# self.onehotencoder = joblib.load('models\one_hot_encoder.joblib')
-
 pipeline = Fraud()
 
 st.title("Transaction-Fraud Detection System")
@@ -42,8 +38,7 @@ if st.button("Predict Fraud"):
         'nameDest': name_dest,
         'oldbalanceDest': oldbalance_dest,
         'newbalanceDest': newbalance_dest,
-        # 'isFraud': is_fraud,
-        # 'isFlaggedFraud': is_flagged_fraud
+        
     }
     
     df_input = pd.DataFrame([input_dict])
