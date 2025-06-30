@@ -24,7 +24,7 @@ def save_scaled_data(X_train, X_valid, X_test, scaler, output_dir='data/processe
         X_test.to_csv(f'{output_dir}/X_test_scaled.csv', index=False)
         
         # Save scaler object
-        joblib.dump(scaler, f'{output_dir}/minmax_scaler.joblib')
+        joblib.dump(scaler, f'parameters/minmax_scaler.joblib')
         
         print(f"✅ Scaled data and scaler saved to {output_dir}")
     except Exception as e:
@@ -76,6 +76,8 @@ if __name__ == "__main__":
         
         # Save scaled data and scaler
         save_scaled_data(X_train_scaled, X_valid_scaled, X_test_scaled, scaler)
+
+
         
     except Exception as e:
         print(f"\n❌ Scaling failed: {e}")
