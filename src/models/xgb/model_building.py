@@ -13,7 +13,9 @@ y_train = pd.read_csv(data_dir / 'split/y_train.csv')
 y_train = y_train.values.ravel()
 
 # Train dummy model
-xgb = XGBClassifier()
+xgb = XGBClassifier(booster='gbtree',
+    eta=0.1,
+    scale_pos_weight=1)
 xgb.fit(X_train, y_train)
 
 # Save model - create models directory if it doesn't exist
