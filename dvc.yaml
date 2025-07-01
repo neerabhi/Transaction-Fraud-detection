@@ -96,22 +96,42 @@ stages:
   #   - metrics/dummy/evaluation_metrics.json
   #   - metrics/dummy/classification_report.txt
 
-  logistic:
-    cmd: python src/models/logistic/model_building.py
+  # logistic:
+  #   cmd: python src/models/logistic/model_building.py
+  #   deps:
+  #   - data/processed/finefeatures/X_train_finalfeatures.csv
+  #   - data/processed/split/y_train.csv
+  #   - src/models/logistic/model_building.py
+  #   outs:
+  #   # - models/dummy/dummy_model.joblib
+  #   - models/logistic_model.joblib
+  # logistic_eval:
+  #   cmd: python src/models/logistic/model_evaluate.py
+  #   deps:
+  #   - data/processed/finefeatures/X_test_finalfeatures.csv
+  #   - data/processed/split/y_test.csv
+  #   - models/logistic_model.joblib
+  #   - src/models/logistic/model_evaluate.py
+  #   outs:
+  #   - metrics/logistic/evaluation_metrics.json
+  #   - metrics/logistic/classification_report.txt
+
+  SVM:
+    cmd: python src/models/svm/model_building.py
     deps:
     - data/processed/finefeatures/X_train_finalfeatures.csv
     - data/processed/split/y_train.csv
-    - src/models/logistic/model_building.py
+    - src/models/svm/model_building.py
     outs:
     # - models/dummy/dummy_model.joblib
-    - models/logistic_model.joblib
-  logistic_eval:
-    cmd: python src/models/logistic/model_evaluate.py
+    - models/svm_model.joblib
+  SVM_eval:
+    cmd: python src/models/svm/model_evaluate.py
     deps:
     - data/processed/finefeatures/X_test_finalfeatures.csv
     - data/processed/split/y_test.csv
-    - models/logistic_model.joblib
-    - src/models/logistic/model_evaluate.py
+    - models/svm_model.joblib
+    - src/models/svm/model_evaluate.py
     outs:
-    - metrics/logistic/evaluation_metrics.json
-    - metrics/logistic/classification_report.txt
+    - metrics/svm/evaluation_metrics.json
+    - metrics/svm/classification_report.txt

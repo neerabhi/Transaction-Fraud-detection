@@ -272,3 +272,51 @@ stages:
       hash: md5
       md5: 761ca428b5996d1517f72d0e920a1886
       size: 1107
+  SVM:
+    cmd: python src/models/svm/model_building.py
+    deps:
+    - path: data/processed/finefeatures/X_train_finalfeatures.csv
+      hash: md5
+      md5: b4e739e7b1423a8c9d9257af05ae8873
+      size: 33642866
+    - path: data/processed/split/y_train.csv
+      hash: md5
+      md5: 85264e2846bc659b1ff7711e57877ee3
+      size: 1221631
+    - path: src/models/svm/model_building.py
+      hash: md5
+      md5: 122f034bd759646628ebf29edb6550dc
+      size: 876
+    outs:
+    - path: models/svm_model.joblib
+      hash: md5
+      md5: 82390502408a9556250ff518f55e9629
+      size: 86779
+  SVM_eval:
+    cmd: python src/models/svm/model_evaluate.py
+    deps:
+    - path: data/processed/finefeatures/X_test_finalfeatures.csv
+      hash: md5
+      md5: d8095b2e7b8b61e458f68ec6ea988cca
+      size: 10511028
+    - path: data/processed/split/y_test.csv
+      hash: md5
+      md5: 24573352893e11f2c7facf5a7cb287d8
+      size: 381769
+    - path: models/svm_model.joblib
+      hash: md5
+      md5: 82390502408a9556250ff518f55e9629
+      size: 86779
+    - path: src/models/svm/model_evaluate.py
+      hash: md5
+      md5: 93c55fe60b7b3c7e6394d391a6c1578e
+      size: 3623
+    outs:
+    - path: metrics/svm/classification_report.txt
+      hash: md5
+      md5: bd18650cf2950369d46340aa806be6c4
+      size: 334
+    - path: metrics/svm/evaluation_metrics.json
+      hash: md5
+      md5: 49daef739a058e79b6b136e5a822ed6e
+      size: 1005
