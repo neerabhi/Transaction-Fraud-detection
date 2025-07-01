@@ -4,27 +4,28 @@ from pathlib import Path
 import pandas as pd
 from sklearn.metrics import (accuracy_score, precision_score, 
                            recall_score, roc_auc_score, classification_report)
-from sklearn.dummy import DummyClassifier
+from sklearn.linear_model import LogisticRegression
 import logging
 from datetime import datetime
 from dvclive import Live 
+import pickle
 
 # Set up logging
 logging.basicConfig(level=logging.INFO)
 logger = logging.getLogger(__name__)
 
 # Configuration
-MODEL_PATH = Path('models/dummy_model.joblib')
+MODEL_PATH = Path('models/logistic_model.joblib')
 DATA_DIR = Path('./data/processed/')
-METRICS_PATH = Path('metrics/dummy/evaluation_metrics.json')
-CLASS_REPORT_PATH = Path('metrics/dummy/classification_report.txt')
+METRICS_PATH = Path('metrics/logistic/evaluation_metrics.json')
+CLASS_REPORT_PATH = Path('metrics/logistic/classification_report.txt')
 
 def load_model(model_path: Path):
     """Load a saved model from file"""
     try:
-        with open(model_path, 'rb') as f:
-            model = pickle.load(f)
+        model = joblib.load(model_path)
         logger.info(f"Model loaded successfully from {model_path}")
+        
         return model
     except Exception as e:
         logger.error(f"Error loading model: {e}")

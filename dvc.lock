@@ -189,13 +189,13 @@ stages:
       size: 1221631
     - path: src/models/dummy/model_building.py
       hash: md5
-      md5: e72772524da6fb4b3bd906aee85e32e1
-      size: 905
+      md5: f6b85eeaac706bbc7fc603b4ccea049f
+      size: 901
     outs:
-    - path: models/dummy/dummy_model.pkl
+    - path: models/dummy_model.joblib
       hash: md5
-      md5: 08fdbdfebb4be2ec24cb7d70b44dd2f6
-      size: 678
+      md5: 76c589b5e8a966df54e4bf44cff81254
+      size: 1031
   dummy_eval:
     cmd: python src/models/dummy/model_evaluate.py
     deps:
@@ -224,3 +224,51 @@ stages:
       hash: md5
       md5: 9b157293c48527282d5094d8c400ca93
       size: 1009
+  logistic:
+    cmd: python src/models/logistic/model_building.py
+    deps:
+    - path: data/processed/finefeatures/X_train_finalfeatures.csv
+      hash: md5
+      md5: b4e739e7b1423a8c9d9257af05ae8873
+      size: 33642866
+    - path: data/processed/split/y_train.csv
+      hash: md5
+      md5: 85264e2846bc659b1ff7711e57877ee3
+      size: 1221631
+    - path: src/models/logistic/model_building.py
+      hash: md5
+      md5: 0e626c8bacdfc64a2c124f0b6dae27e9
+      size: 908
+    outs:
+    - path: models/logistic_model.joblib
+      hash: md5
+      md5: 7fcb30a6277beac450ac8e983af0b681
+      size: 1375
+  logistic_eval:
+    cmd: python src/models/logistic/model_evaluate.py
+    deps:
+    - path: data/processed/finefeatures/X_test_finalfeatures.csv
+      hash: md5
+      md5: d8095b2e7b8b61e458f68ec6ea988cca
+      size: 10511028
+    - path: data/processed/split/y_test.csv
+      hash: md5
+      md5: 24573352893e11f2c7facf5a7cb287d8
+      size: 381769
+    - path: models/logistic_model.joblib
+      hash: md5
+      md5: 7fcb30a6277beac450ac8e983af0b681
+      size: 1375
+    - path: src/models/logistic/model_evaluate.py
+      hash: md5
+      md5: 0b3abbca293a6a92ec4457a2ccad5b79
+      size: 3653
+    outs:
+    - path: metrics/logistic/classification_report.txt
+      hash: md5
+      md5: e995bbbd5003a986581f1f77e0a46746
+      size: 334
+    - path: metrics/logistic/evaluation_metrics.json
+      hash: md5
+      md5: 761ca428b5996d1517f72d0e920a1886
+      size: 1107
