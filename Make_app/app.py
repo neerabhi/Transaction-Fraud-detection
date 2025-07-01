@@ -6,7 +6,7 @@ from preprocess import Fraud
 
 
 # Load model
-model = joblib.load('models/dummy/dummy_model.joblib')
+model = joblib.load('models/xgb_model.joblib')
 
 pipeline = Fraud()
 
