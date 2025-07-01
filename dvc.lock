@@ -320,3 +320,51 @@ stages:
       hash: md5
       md5: 49daef739a058e79b6b136e5a822ed6e
       size: 1005
+  KNN:
+    cmd: python src/models/knn/model_building.py
+    deps:
+    - path: data/processed/finefeatures/X_train_finalfeatures.csv
+      hash: md5
+      md5: b4e739e7b1423a8c9d9257af05ae8873
+      size: 33642866
+    - path: data/processed/split/y_train.csv
+      hash: md5
+      md5: 85264e2846bc659b1ff7711e57877ee3
+      size: 1221631
+    - path: src/models/knn/model_building.py
+      hash: md5
+      md5: 656a83d350d64493dddc5da4812b5cf4
+      size: 910
+    outs:
+    - path: models/knn_model.joblib
+      hash: md5
+      md5: e53074d869a4baa4742f3e24fa41b696
+      size: 54483526
+  KNN_eval:
+    cmd: python src/models/knn/model_evaluate.py
+    deps:
+    - path: data/processed/finefeatures/X_test_finalfeatures.csv
+      hash: md5
+      md5: d8095b2e7b8b61e458f68ec6ea988cca
+      size: 10511028
+    - path: data/processed/split/y_test.csv
+      hash: md5
+      md5: 24573352893e11f2c7facf5a7cb287d8
+      size: 381769
+    - path: models/knn_model.joblib
+      hash: md5
+      md5: e53074d869a4baa4742f3e24fa41b696
+      size: 54483526
+    - path: src/models/knn/model_evaluate.py
+      hash: md5
+      md5: 60529443b9968363c6cd66af22f4d7c4
+      size: 3640
+    outs:
+    - path: metrics/knn/classification_report.txt
+      hash: md5
+      md5: e8ddfbc6f3c2de123a1c1d9279c0474e
+      size: 334
+    - path: metrics/knn/evaluation_metrics.json
+      hash: md5
+      md5: d2ee71dc5a8d3dc1839bea04eb97d183
+      size: 1157

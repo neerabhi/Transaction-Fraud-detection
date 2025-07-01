@@ -4,7 +4,7 @@ from pathlib import Path
 import pandas as pd
 from sklearn.metrics import (accuracy_score, precision_score, 
                            recall_score, roc_auc_score, classification_report)
-from sklearn.svm          import SVC
+from sklearn.neighbors    import KNeighborsClassifier
 import logging
 from datetime import datetime
 from dvclive import Live 
@@ -15,10 +15,10 @@ logging.basicConfig(level=logging.INFO)
 logger = logging.getLogger(__name__)
 
 # Configuration
-MODEL_PATH = Path('models/svm_model.joblib')
+MODEL_PATH = Path('models/knn_model.joblib')
 DATA_DIR = Path('./data/processed/')
-METRICS_PATH = Path('metrics/svm/evaluation_metrics.json')
-CLASS_REPORT_PATH = Path('metrics/svm/classification_report.txt')
+METRICS_PATH = Path('metrics/knn/evaluation_metrics.json')
+CLASS_REPORT_PATH = Path('metrics/knn/classification_report.txt')
 
 def load_model(model_path: Path):
     """Load a saved model from file"""

@@ -1,6 +1,6 @@
 import pandas as pd
 import numpy as np
-from sklearn.svm          import SVC
+from sklearn.neighbors    import KNeighborsClassifier
 from pathlib import Path
 import joblib  # better than pickle for sklearn models
 from dvclive import live
@@ -13,15 +13,15 @@ y_train = pd.read_csv(data_dir / 'split/y_train.csv')
 y_train = y_train.values.ravel()
 
 # Train dummy model
-svm = SVC()
-svm.fit(X_train, y_train)
+knn = KNeighborsClassifier()
+knn.fit(X_train, y_train)
 
 # Save model - create models directory if it doesn't exist
 model_dir = Path('./models')
 model_dir.mkdir(exist_ok=True)
 
 # Save using joblib
-joblib.dump(svm, model_dir / 'svm_model.joblib')
+joblib.dump(knn, model_dir / 'knn_model.joblib')
 
 # Alternatively using pickle (fixed variable name)
 import pickle
