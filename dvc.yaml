@@ -195,3 +195,14 @@ stages:
     outs:
     - metrics/xgb/evaluation_metrics.json
     - metrics/xgb/classification_report.txt
+  Make_app_pipeline:
+    cmd: python Make_app/preprocess.py
+    deps:
+    - Make_app/preprocess.py
+    - parameters\minmax_scaler.joblib
+    - parameters\one_hot_encoder.joblib
+  app:
+    cmd: streamlit run Make_app/app.py
+    deps:
+    - Make_app/app.py
+    - models/xgb_model.joblib
