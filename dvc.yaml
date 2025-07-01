@@ -83,7 +83,6 @@ stages:
     - data/processed/split/y_train.csv
     - src/models/dummy/model_building.py
     outs:
-    # - models/dummy/dummy_model.joblib
     - models/dummy_model.joblib
   dummy_eval:
     cmd: python src/models/dummy/model_evaluate.py
@@ -183,7 +182,6 @@ stages:
     - data/processed/split/y_train.csv
     - src/models/xgb/model_building.py
     outs:
-    # - models/dummy/dummy_model.joblib
     - models/xgb_model.joblib
   xgb_eval:
     cmd: python src/models/xgb/model_evaluate.py
