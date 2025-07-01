@@ -368,3 +368,51 @@ stages:
       hash: md5
       md5: d2ee71dc5a8d3dc1839bea04eb97d183
       size: 1157
+  RandomForest:
+    cmd: python src/models/rf/model_building.py
+    deps:
+    - path: data/processed/finefeatures/X_train_finalfeatures.csv
+      hash: md5
+      md5: b4e739e7b1423a8c9d9257af05ae8873
+      size: 33642866
+    - path: data/processed/split/y_train.csv
+      hash: md5
+      md5: 85264e2846bc659b1ff7711e57877ee3
+      size: 1221631
+    - path: src/models/rf/model_building.py
+      hash: md5
+      md5: b96c3620089063c757a5ddd0f419b207
+      size: 933
+    outs:
+    - path: models/rf_model.joblib
+      hash: md5
+      md5: cd3dcb0dc53a3cb9b3026901534c24a9
+      size: 4489561
+  RandomForest_eval:
+    cmd: python src/models/rf/model_evaluate.py
+    deps:
+    - path: data/processed/finefeatures/X_test_finalfeatures.csv
+      hash: md5
+      md5: d8095b2e7b8b61e458f68ec6ea988cca
+      size: 10511028
+    - path: data/processed/split/y_test.csv
+      hash: md5
+      md5: 24573352893e11f2c7facf5a7cb287d8
+      size: 381769
+    - path: models/rf_model.joblib
+      hash: md5
+      md5: cd3dcb0dc53a3cb9b3026901534c24a9
+      size: 4489561
+    - path: src/models/knn/model_evaluate.py
+      hash: md5
+      md5: 60529443b9968363c6cd66af22f4d7c4
+      size: 3640
+    outs:
+    - path: metrics/rf/classification_report.txt
+      hash: md5
+      md5: f73193fabe888e0eef5d9085bf93d970
+      size: 334
+    - path: metrics/rf/evaluation_metrics.json
+      hash: md5
+      md5: 149eeec34f214c2ebece9eaa8a985303
+      size: 1145
