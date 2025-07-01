@@ -207,14 +207,14 @@ stages:
       hash: md5
       md5: 24573352893e11f2c7facf5a7cb287d8
       size: 381769
-    - path: models/dummy/dummy_model.pkl
+    - path: models/dummy_model.joblib
       hash: md5
-      md5: 08fdbdfebb4be2ec24cb7d70b44dd2f6
-      size: 678
+      md5: 76c589b5e8a966df54e4bf44cff81254
+      size: 1031
     - path: src/models/dummy/model_evaluate.py
       hash: md5
-      md5: 49e3b7a61c2927444d198a4673dd1a7d
-      size: 3650
+      md5: 4dbb15cfcfc4a5a09e73a9965aaf45e8
+      size: 3620
     outs:
     - path: metrics/dummy/classification_report.txt
       hash: md5
@@ -222,7 +222,7 @@ stages:
       size: 334
     - path: metrics/dummy/evaluation_metrics.json
       hash: md5
-      md5: 9b157293c48527282d5094d8c400ca93
+      md5: e86e3f4a6791f73dac71082b5f7f145a
       size: 1009
   logistic:
     cmd: python src/models/logistic/model_building.py

@@ -8,7 +8,7 @@ from sklearn.dummy import DummyClassifier
 import logging
 from datetime import datetime
 from dvclive import Live 
-
+import pickle
 # Set up logging
 logging.basicConfig(level=logging.INFO)
 logger = logging.getLogger(__name__)
@@ -22,8 +22,7 @@ CLASS_REPORT_PATH = Path('metrics/dummy/classification_report.txt')
 def load_model(model_path: Path):
     """Load a saved model from file"""
     try:
-        with open(model_path, 'rb') as f:
-            model = pickle.load(f)
+        model=joblib.load(MODEL_PATH)
         logger.info(f"Model loaded successfully from {model_path}")
         return model
     except Exception as e:
