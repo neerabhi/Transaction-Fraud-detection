@@ -1,3 +1,4 @@
 /svm_model.joblib
 /knn_model.joblib
 /rf_model.joblib
+/xgb_model.joblib

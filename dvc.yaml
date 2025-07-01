@@ -156,22 +156,42 @@ stages:
   #   - metrics/knn/evaluation_metrics.json
   #   - metrics/knn/classification_report.txt
 
-  RandomForest:
-    cmd: python src/models/rf/model_building.py
+  # RandomForest:
+  #   cmd: python src/models/rf/model_building.py
+  #   deps:
+  #   - data/processed/finefeatures/X_train_finalfeatures.csv
+  #   - data/processed/split/y_train.csv
+  #   - src/models/rf/model_building.py
+  #   outs:
+  #   # - models/dummy/dummy_model.joblib
+  #   - models/rf_model.joblib
+  # RandomForest_eval:
+  #   cmd: python src/models/rf/model_evaluate.py
+  #   deps:
+  #   - data/processed/finefeatures/X_test_finalfeatures.csv
+  #   - data/processed/split/y_test.csv
+  #   - models/rf_model.joblib
+  #   - src/models/rf/model_evaluate.py
+  #   outs:
+  #   - metrics/rf/evaluation_metrics.json
+  #   - metrics/rf/classification_report.txt
+
+  xgb:
+    cmd: python src/models/xgb/model_building.py
     deps:
     - data/processed/finefeatures/X_train_finalfeatures.csv
     - data/processed/split/y_train.csv
-    - src/models/rf/model_building.py
+    - src/models/xgb/model_building.py
     outs:
     # - models/dummy/dummy_model.joblib
-    - models/rf_model.joblib
-  RandomForest_eval:
-    cmd: python src/models/rf/model_evaluate.py
+    - models/xgb_model.joblib
+  xgb_eval:
+    cmd: python src/models/xgb/model_evaluate.py
     deps:
     - data/processed/finefeatures/X_test_finalfeatures.csv
     - data/processed/split/y_test.csv
-    - models/rf_model.joblib
-    - src/models/knn/model_evaluate.py
+    - models/xgb_model.joblib
+    - src/models/xgb/model_evaluate.py
     outs:
-    - metrics/rf/evaluation_metrics.json
-    - metrics/rf/classification_report.txt
+    - metrics/xgb/evaluation_metrics.json
+    - metrics/xgb/classification_report.txt

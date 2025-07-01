@@ -416,3 +416,51 @@ stages:
       hash: md5
       md5: 149eeec34f214c2ebece9eaa8a985303
       size: 1145
+  xgb:
+    cmd: python src/models/xgb/model_building.py
+    deps:
+    - path: data/processed/finefeatures/X_train_finalfeatures.csv
+      hash: md5
+      md5: b4e739e7b1423a8c9d9257af05ae8873
+      size: 33642866
+    - path: data/processed/split/y_train.csv
+      hash: md5
+      md5: 85264e2846bc659b1ff7711e57877ee3
+      size: 1221631
+    - path: src/models/xgb/model_building.py
+      hash: md5
+      md5: a1a19631f6bbd245fc61f463d68e36d8
+      size: 884
+    outs:
+    - path: models/xgb_model.joblib
+      hash: md5
+      md5: eff75ae8e1d2bec6945dc60659a58526
+      size: 182409
+  xgb_eval:
+    cmd: python src/models/xgb/model_evaluate.py
+    deps:
+    - path: data/processed/finefeatures/X_test_finalfeatures.csv
+      hash: md5
+      md5: d8095b2e7b8b61e458f68ec6ea988cca
+      size: 10511028
+    - path: data/processed/split/y_test.csv
+      hash: md5
+      md5: 24573352893e11f2c7facf5a7cb287d8
+      size: 381769
+    - path: models/xgb_model.joblib
+      hash: md5
+      md5: eff75ae8e1d2bec6945dc60659a58526
+      size: 182409
+    - path: src/models/xgb/model_evaluate.py
+      hash: md5
+      md5: f01c4f53034173f90caff1754c3cb515
+      size: 3621
+    outs:
+    - path: metrics/xgb/classification_report.txt
+      hash: md5
+      md5: 8d20dea24faa23eb344345738ce55188
+      size: 334
+    - path: metrics/xgb/evaluation_metrics.json
+      hash: md5
+      md5: 408f1a89d78c78ce98b168b2b6ac9aeb
+      size: 1127
