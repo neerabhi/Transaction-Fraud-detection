@@ -94,6 +94,11 @@ def main():
     
     print("\nClassification Report:")
     print(clf_report)
+with Live(save_dvc_exp=True) as live:
+    live.log_metric('accuracy', accuracy)
+    live.log_metric('precision', precision)
+    live.log_metric('recall', recall)
+    live.log_metric('classification_report', classification_report)
 
 if __name__ == "__main__":
     main()
